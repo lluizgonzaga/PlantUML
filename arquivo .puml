@@ -1,0 +1,107 @@
+@startuml
+
+package "Administrador" {
+    package "Função" {
+        Admin_Home --> "Home"
+        package "Pessoas" {
+            Funcao_Pessoas_Usuario --> "Usuário"
+            Funcao_Pessoas_Funcionario --> "Funcionário"
+            Funcao_Pessoas_PessoaFisica --> "Pessoa Física"
+            Funcao_Pessoas_PessoaJuridicas --> "Pessoa Jurídicas"
+        }
+        package "Cadastros" {
+            Funcao_Cadastros_Procedimentos --> "Procedimentos"
+            Funcao_Cadastros_Convenios --> "Convênios"
+            package "Anamnese" {
+                Funcao_Cadastros_Anamnese_GruposAnamnese --> "Grupos Anamnese"
+                Funcao_Cadastros_Anamnese_ItensAnamnese --> "Itens Anamnese"
+            }
+            Funcao_Cadastros_MedicamentosReceitas --> "Medicamentos/Receitas"
+            package "Cadastros gerais" {
+                package "Financeiro" {
+                    Funcao_Cadastros_CadastrosGerais_Financeiro_FormaPagamento --> "Forma de Pagamento"
+                    Funcao_Cadastros_CadastrosGerais_Financeiro_FrequenciasParcelamentos --> "Frequências de Parcelamentos"
+                }
+                package "Pessoa Física" {
+                    Funcao_Cadastros_CadastrosGerais_PessoaFisica_Profissoes --> "Profissões"
+                    Funcao_Cadastros_CadastrosGerais_PessoaFisica_Genero --> "Gênero"
+                }
+                package "Pessoa Jurídica" {
+                    Funcao_Cadastros_CadastrosGerais_PessoaJuridica_TipoPessoaJuridica --> "Tipo Pessoa Jurídica"
+                }
+                package "Sistema" {
+                    Funcao_Cadastros_CadastrosGerais_Sistema_Grupo --> "Grupo"
+                    Funcao_Cadastros_CadastrosGerais_Sistema_Acessos --> "Acessos"
+                    Funcao_Cadastros_CadastrosGerais_Sistema_Cargos --> "Cargos"
+                }
+            }
+        }
+        package "Financeiro" {
+            Funcao_Financeiro_Recebimento --> "Recebimento"
+            Funcao_Financeiro_DespesasPagamentos --> "Despesas / Pagamentos"
+            Funcao_Financeiro_Comissoes --> "Comissões"
+            Funcao_Financeiro_RecebimentoConvenio --> "Recebimento Convênio"
+            Funcao_Financeiro_DemostrativoLucro --> "Demostrativo de Lucro"
+            Funcao_Financeiro_RelatoriosFinanceiro --> "Relatórios Financeiro"
+        }
+        package "Agendamentos" {
+            Funcao_Agendamentos_Agendamentos --> "Agendamentos"
+            Funcao_Agendamentos_RelatorioAgendamento --> "Relatório de Agendamento"
+            Funcao_Agendamentos_RelatorioProcedimento --> "Relatório de Procedimento"
+        }
+        Admin_Caixa --> "Caixa"
+    }
+}
+
+package "Financeiro" {
+    package "Função" {
+        Financeiro_Home --> "Home"
+        package "Pessoas" {
+            Funcao_Pessoas_PessoaFisica --> "Pessoa Física"
+            Funcao_Pessoas_PessoaJuridicas --> "Pessoa Jurídicas"
+        }
+        package "Financeiro" {
+            Funcao_Financeiro_Recebimento --> "Recebimento"
+            Funcao_Financeiro_DespesasPagamentos --> "Despesas / Pagamentos"
+            Funcao_Financeiro_Comissoes --> "Comissões"
+            Funcao_Financeiro_RecebimentoConvenio --> "Recebimento Convênio"
+            Funcao_Financeiro_DemostrativoLucro --> "Demostrativo de Lucro"
+            Funcao_Financeiro_RelatoriosFinanceiro --> "Relatórios Financeiro"
+        }
+        package "Agendamentos" {
+            Funcao_Agendamentos_RelatorioAgendamento --> "Relatório de Agendamento"
+            Funcao_Agendamentos_RelatorioProcedimento --> "Relatório de Procedimento"
+        }
+        Financeiro_Caixa --> "Caixa"
+    }
+}
+
+package "Profissional de Saúde" {
+    package "Função" {
+        package "Agendamentos" {
+            Funcao_Agendamentos_RelatorioAgendamento --> "Relatório de Agendamento"
+            Funcao_Agendamentos_RelatorioProcedimento --> "Relatório de Procedimento"
+        }
+        ProfSaude_Consultas --> "Consultas"
+        ProfSaude_DiasHorarios --> "Dias / Horários"
+        ProfSaude_MinhasComissoes --> "Minhas Comissões"
+    }
+}
+
+package "Recepcionista" {
+    package "Função" {
+        Recepcionista_Home --> "Home"
+        package "Pessoas" {
+            Funcao_Pessoas_PessoaFisica --> "Pessoa Física"
+            Funcao_Pessoas_PessoaJuridicas --> "Pessoa Jurídicas"
+        }
+        package "Agendamentos" {
+            Funcao_Agendamentos_Agendamentos --> "Agendamentos"
+            Funcao_Agendamentos_RelatorioAgendamento --> "Relatório de Agendamento"
+            Funcao_Agendamentos_RelatorioProcedimento --> "Relatório de Procedimento"
+        }
+        Recepcionista_Caixa --> "Caixa"
+    }
+}
+
+@enduml
